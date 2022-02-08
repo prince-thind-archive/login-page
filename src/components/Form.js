@@ -1,6 +1,7 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
+
 export default function NormalLoginForm() {
   const onFinish = (values) => {
     //todo fetch and stuff
@@ -42,12 +43,12 @@ export default function NormalLoginForm() {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" block htmlType="submit">
           Log in
         </Button>
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember Password</Checkbox>
+            <Checkbox >Remember Password</Checkbox>
           </Form.Item>
           <a href="./">Forgot password?</a>
         </Form.Item>

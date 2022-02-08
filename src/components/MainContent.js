@@ -8,7 +8,7 @@ export default function MainContent() {
   return (
     <main>
       <Row justify="middle" style={{ margin: "0 1rem" }}>
-        <Col span={6}>
+        <Col span={8}>
           <Space direction="vertical" size={"middle"}>
             <div>
               <Title level={1} style={{ marginBottom: "0" }}>
@@ -21,7 +21,7 @@ export default function MainContent() {
             <Form />
           </Space>
         </Col>
-        <Col span={18}>
+        <Col span={16}>
           <Image width={"90%"} src={mainImage} />
         </Col>
       </Row>
