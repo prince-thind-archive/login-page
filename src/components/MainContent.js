@@ -1,11 +1,26 @@
-import { Col, Row, Image } from "antd";
+import { Col, Row, Image, Typography, Space } from "antd";
 import mainImage from "../assets/images/main.jpg";
+import Form from "./Form";
+
+const { Title, Text } = Typography;
 
 export default function MainContent() {
   return (
     <main>
-      <Row>
-        <Col span={6}></Col>
+      <Row justify="middle" style={{ margin: "0 1rem" }}>
+        <Col span={6}>
+          <Space direction="vertical" size={"middle"}>
+            <div>
+              <Title level={1} style={{ marginBottom: "0" }}>
+                Welcome Back
+              </Title>
+              <Text type="secondary">
+                Please Enter Username and Password to login
+              </Text>
+            </div>
+            <Form />
+          </Space>
+        </Col>
         <Col span={18}>
           <Image width={"90%"} src={mainImage} />
         </Col>
