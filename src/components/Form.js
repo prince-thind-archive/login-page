@@ -2,8 +2,7 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import fetchResponse from "../lib/fetchResponse";
 
-export default function NormalLoginForm() {
-  
+export default function NormalLoginForm({ status, setStatus }) {
   return (
     <Form
       name="normal_login"
@@ -23,14 +22,16 @@ export default function NormalLoginForm() {
       >
         <Input prefix={<UserOutlined />} placeholder="Email Address*" />
       </Form.Item>
+        
       <Form.Item
         name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your Password!",
-          },
-        ]}
+        // rules={[            //password rules disabled to allow missing password fetch errors to happen
+        //   {
+        //     required: true,
+        //     message: "Please input your Password!",
+        //   },
+        // ]}
+
       >
         <Input
           prefix={<LockOutlined />}
@@ -40,7 +41,12 @@ export default function NormalLoginForm() {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" block htmlType="submit">
+        <Button
+          type="primary"
+          loading={status === "pending" ? true : false}
+          block
+          htmlType="submit"
+        >
           Log in
         </Button>
         <Form.Item>
@@ -54,10 +60,20 @@ export default function NormalLoginForm() {
   );
 
   async function onFinish(values) {
-    const data = await fetchResponse({
+    if (status === "pending") return;
+    setStatus("pending");
+
+    const res = await fetchResponse({
       email: values.username,
       password: values.password,
     });
-    console.log(data);
+
+    if (res.data.error) {
+      setStatus("authError");
+    } else if (res.data.token) {
+      setStatus("fulfilled");
+    } else {
+      setStatus("error");
+    }
   }
 }

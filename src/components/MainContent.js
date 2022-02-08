@@ -1,10 +1,11 @@
 import { Col, Row, Image, Typography, Space } from "antd";
 import mainImage from "../assets/images/main.jpg";
 import Form from "./Form";
+import Status from "./Status";
 
 const { Title, Text } = Typography;
 
-export default function MainContent() {
+export default function MainContent({ status, setStatus }) {
   return (
     <main>
       <Row justify="middle" style={{ margin: "0 1rem" }}>
@@ -18,10 +19,11 @@ export default function MainContent() {
                 Please Enter Username and Password to login
               </Text>
             </div>
-            <Form />
+            <Form status={status} setStatus={setStatus} />
+            <Status status={status} />
           </Space>
         </Col>
-        <Col  xs={{ span: 0 }} md={{ span: 16 }}>
+        <Col xs={{ span: 0 }} md={{ span: 16 }}>
           <Image width={"90%"} src={mainImage} />
         </Col>
       </Row>

@@ -13,7 +13,7 @@ export default async function fetchResponse({ email, password }) {
       },
     });
     const data = await res.json();
-    return { data };
+    return { error: null, data };
   } catch (e) {
     return { error: e, data: null };
   }
