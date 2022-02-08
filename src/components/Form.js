@@ -1,12 +1,9 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
+import fetchResponse from "../lib/fetchResponse";
 
 export default function NormalLoginForm() {
-  const onFinish = (values) => {
-    //todo fetch and stuff
-  };
-
+  
   return (
     <Form
       name="normal_login"
@@ -48,11 +45,19 @@ export default function NormalLoginForm() {
         </Button>
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox >Remember Password</Checkbox>
+            <Checkbox>Remember Password</Checkbox>
           </Form.Item>
           <a href="./">Forgot password?</a>
         </Form.Item>
       </Form.Item>
     </Form>
   );
+
+  async function onFinish(values) {
+    const data = await fetchResponse({
+      email: values.username,
+      password: values.password,
+    });
+    console.log(data);
+  }
 }
