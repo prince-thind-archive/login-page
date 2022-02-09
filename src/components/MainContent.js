@@ -8,7 +8,7 @@ export default function MainContent({ status, setStatus }) {
   return (
     <main>
       <Row align="middle" style={{ margin: "0 1rem" }}>
-        <Col xs={{ span: 24 }} md={{ span: 8 }}>
+        <Col xs={{ span: 24 }} md={{span:12}} xl={{ span: 8 }}>
           <Row justify="center">
             <Col xs={{ span: 20 }} md={{ span: 16 }}>
               <Title level={1} style={{ marginBottom: "0" }}>
@@ -21,7 +21,7 @@ export default function MainContent({ status, setStatus }) {
             </Col>
           </Row>
         </Col>
-        <Col xs={{ span: 0 }} md={{ span: 16 }}>
+        <Col xs={{ span: 0 }} md={{span:12}} xl={{ span: 16 }}>
           <Image width={"90%"} src={mainImage} />
         </Col>
       </Row>
