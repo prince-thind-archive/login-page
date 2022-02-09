@@ -1,12 +1,12 @@
 import { Button, PageHeader, Typography } from "antd";
 import React from "react";
-import { secondary as secondaryColor } from "../lib/themes";
+import { secondary as secondaryColor, primary as primaryColor} from "../lib/themes";
 
 const { Title } = Typography;
 
 export default function SiteHeader() {
   const title = (
-    <Title level={3}>
+    <Title level={3} style={{ color: primaryColor }}>
       ATools<span style={{ color: secondaryColor }}>.</span>
     </Title>
   );

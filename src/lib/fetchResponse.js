@@ -18,3 +18,7 @@ export default async function fetchResponse({ email, password }) {
     return { error: e, data: null };
   }
 }
+
+console.log(
+  "There is nothing to see here, just a custom message left by me- Prince Thind, hopefully you like this like little easter egg :)"
+);
