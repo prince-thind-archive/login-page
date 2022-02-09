@@ -25,12 +25,12 @@ export default function NormalLoginForm({ status, setStatus }) {
       </Form.Item>
       <Form.Item
         name="password"
-        // rules={[            //password rules disabled to allow missing password fetch errors to happen
-        //   {
-        //     required: true,
-        //     message: "Please input your Password!",
-        //   },
-        // ]}
+        rules={[           
+          {
+            required: true,
+            message: "Please input your Password!",
+          },
+        ]}
       >
         <Input
           prefix={<LockOutlined />}
