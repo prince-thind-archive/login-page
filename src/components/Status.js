@@ -1,19 +1,19 @@
-import { Result, Spin } from "antd";
+import { Typography } from "antd";
+const { Text } = Typography;
 
 export default function Status({ status }) {
   switch (status) {
     case "idle":
-      return null;
+      return <Text type="danger">&nbsp;</Text>;
     case "pending":
-      return <Spin />;
+      return <Text type="warning">Loading...</Text>;
     case "authError":
-      return (
-        <Result status="error" title="The username or passsword is incorrect" />
-      );
+      return <Text type="danger">UserName or Password incorrect</Text>;
     case "fulfilled":
-      return <Result status="success" title="Success! User found" />;
+      return <Text type="success">Success! User Found</Text>;
     case "error":
-      return <Result status="warning" title="Unknown Error" />;
+      return <Text type="danger">Unknown Error Occured</Text>;
+
     default:
       return null;
   }

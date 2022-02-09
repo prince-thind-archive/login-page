@@ -1,6 +1,7 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import fetchResponse from "../lib/fetchResponse";
+import Status from "./Status";
 
 export default function NormalLoginForm({ status, setStatus }) {
   return (
@@ -22,7 +23,6 @@ export default function NormalLoginForm({ status, setStatus }) {
       >
         <Input prefix={<UserOutlined />} placeholder="Email Address*" />
       </Form.Item>
-        
       <Form.Item
         name="password"
         // rules={[            //password rules disabled to allow missing password fetch errors to happen
@@ -31,7 +31,6 @@ export default function NormalLoginForm({ status, setStatus }) {
         //     message: "Please input your Password!",
         //   },
         // ]}
-
       >
         <Input
           prefix={<LockOutlined />}
@@ -55,6 +54,7 @@ export default function NormalLoginForm({ status, setStatus }) {
           </Form.Item>
           <a href="./">Forgot password?</a>
         </Form.Item>
+        <Status status={status} />
       </Form.Item>
     </Form>
   );
