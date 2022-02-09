@@ -1,2 +1,4 @@
 # login-page
-Vouch Digital Project login page, built using Ant Design Framework and React. This is Single Login Page app, users can login as well, success and erroneous logins are well designed
+Vouch Digital Project login page. Built using Ant Design Framework and React. This is a Single Page app, users can login and see if their username is in the database. Errors and Success messages are appropriately displayed to the user depending on request status.
+
+
